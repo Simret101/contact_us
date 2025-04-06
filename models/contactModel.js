@@ -1,11 +1,10 @@
 class Contact {
-    constructor(email, subject, message) {
-      this.email = email;
-      this.subject = subject;
-      this.message = message;
-      this.timestamp = new Date();
-    }
+  constructor(email, name, message) { 
+    this.email = email;
+    this.name = name;  
+    this.message = message;
+    this.timestamp = new Date();
   }
-  
-  module.exports = Contact;
-  
+}
+
+module.exports = Contact;

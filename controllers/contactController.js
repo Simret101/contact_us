@@ -1,10 +1,10 @@
-const { sendEmails } = require("../services/emailService");
+const { sendEmail } = require("../services/emailService");
 
 exports.handleContact = async (req, res) => {
-  const { email, subject, message } = req.body;
+  const { email, name, message } = req.body;  
 
   try {
-    const result = await sendEmails(email, subject, message);
+    const result = await sendEmail(email, name, message);  
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
