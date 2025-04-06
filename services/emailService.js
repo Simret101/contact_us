@@ -1,11 +1,14 @@
 const transporter = require("../config/nodemailerConfig");
 
 exports.sendEmails = async (email, name, message) => {
+
+  const senderName = name && name.trim().length > 0 ? name : "Anonymous";
+
   try {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
-      subject: `Message from ${name}`,  
+      subject: `Message from ${senderName}`,  
       text: message,
     });
 
